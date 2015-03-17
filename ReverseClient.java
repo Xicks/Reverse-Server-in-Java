@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Author: Leonardo Schick
  * Date: 03/17/2015
- * Classe: ReverseClient
+ * Class: ReverseClient
  * This class opens a connection with the server using a socket.
  * Reads the input from the user, sends it to the server and shows the server's response.
  */
