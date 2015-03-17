@@ -3,27 +3,26 @@ import java.net.*;
 
 /**
  * Author: Leonardo Schick
- * Data: 17/03/2015
- * Classe: ReverseClient
- * Esta classe recebe uma conexão via socket do cliente, e dispara uma Thread
- * que gerencia essa conexão.
+ * Date: 03/17/2015
+ * Class: ReverseClient
+ * This class receives the connection and starts a thread to handle it.
  */
  
 public class ReverseServer {
 
-	//************************************main()**********************************************//
+    //************************************main()**********************************************//
     public static void main(String[] args) {
-        final int port = 16001;
-        try(ServerSocket ss = new ServerSocket(port))
-        {
-            while(true)
-            {
-                Socket s = ss.accept();
-                Runnable r = new ReverseHandler(s);
-				new Thread(r).start();
-            }
-        }catch(IOException e){
-            System.err.println(e.getMessage());
-        }
+    	final int port = 16001;
+    	try(ServerSocket ss = new ServerSocket(port))
+    	{
+    		while(true)
+        	{
+			Socket s = ss.accept();
+			Runnable r = new ReverseHandler(s);
+			new Thread(r).start();
+        	}
+    	}catch(IOException e){
+        	System.err.println(e.getMessage());
+    	}
     }
 }
