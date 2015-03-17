@@ -3,10 +3,11 @@ import java.net.*;
 
 /**
  * Author: Leonardo Schick
- * Data: 17/03/2015
- * Classe: ReverseHandler
- * Esta classe é uma Thread responsável por uma conexão. Ela recebe textos do cliente e devolve
- * o mesmo texto ao contrário. A Thread termina quando o cliente desconecta ou digita EXIT.
+ * Date: 03/17/2015
+ * Class: ReverseHandler
+ * Thread that handles each connection to the server. Receives the String from the client
+ * reverses it and sends it back. Thread stops if the String given is EXIT or the connection
+ * closes.
  */
  
 public class ReverseHandler implements Runnable{
@@ -25,7 +26,7 @@ public class ReverseHandler implements Runnable{
         return new String(sb.reverse());
     }
     
-	//************************************run()***********************************************//
+    //************************************run()***********************************************//
     @Override
     public void run() {
         try{
@@ -35,12 +36,12 @@ public class ReverseHandler implements Runnable{
                 BufferedReader br = new BufferedReader(new InputStreamReader(is));
                 //PrintWriter(OutputStream,[flush output?])
                 PrintWriter pw = new PrintWriter(os,true);
-                pw.println("Digite EXIT para sair");
-				String line;
-				while((line = br.readLine())!= null)
+                pw.println("Type EXIT to exit");
+		String line;
+		while((line = br.readLine())!= null)
                 {
-					if(line.trim().equalsIgnoreCase("EXIT")) break;		
-					pw.println("> " + reverse(line));
+			if(line.trim().equalsIgnoreCase("EXIT")) break;		
+			pw.println("> " + reverse(line));
                 }       
             }catch(SocketException e){
                 System.err.println(e);
