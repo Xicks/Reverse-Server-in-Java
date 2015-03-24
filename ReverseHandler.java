@@ -42,7 +42,10 @@ public class ReverseHandler implements Runnable{
                 {
 			if(line.trim().equalsIgnoreCase("EXIT")) break;		
 			pw.println("> " + reverse(line));
-                }       
+                }
+                is.close();
+                os.close();
+                br.close();
             }catch(SocketException e){
                 System.err.println(e);
             }finally{s.close();}
