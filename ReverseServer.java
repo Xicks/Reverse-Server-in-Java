@@ -4,7 +4,7 @@ import java.net.*;
 /**
  * Author: Leonardo Schick
  * Date: 03/17/2015
- * Class: ReverseClient
+ * Class: ReverseServer
  * This class receives the connection and starts a thread to handle it.
  */
  
